@@ -1,0 +1,101 @@
+﻿@using MSIS_HMS.Enums;
+@model MSIS_HMS.Core.Entities.PurchaseOrder
+
+<div class="col-xs-12 ">
+
+    <div class=" bg-w">
+        <div class="col-lg-12 col-xs-12">
+            <section class="box">
+                <header class="panel_header">
+                    <h2 class="title pull-left">Basic Info</h2>
+                    <div class="actions panel_actions pull-right">
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <form action="/PurchaseOrders/@ViewData["Action"]" method="post">
+                            @Html.AntiForgeryToken()
+                            @if (ViewData["Action"].ToString() == ViewEnum.Action.Edit.ToDescription())
+                            {
+                                <input asp-for="Id" hidden />
+                                <input asp-for="BranchId" hidden />
+                                <input asp-for="PurchaseOrderNO" hidden />
+                            }
+                            @if ((bool)ViewBag.UseVoucherFormat)
+                            {
+                                <input asp-for="PurchaseOrderNO" hidden />
+                            }
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-label" for="PurchaseDate">Date</label>
+                                        <span class="desc"></span>
+                                        <div class="controls">
+                                            @if (ViewData["Action"].ToString() == ViewEnum.Action.Edit.ToDescription())
+                                            {
+                                                <input type="date" class="form-control" asp-for="PurchaseOrderDate">
+                                            }
+                                            else
+                                            {
+                                                <input type="date" class="form-control" asp-for="PurchaseOrderDate" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                                            }
+                                            <span asp-validation-for="PurchaseOrderDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-label" for="PurchaseOrderNO">PurchaseOrderNO</label>
+                                        <span class="desc"></span>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" asp-for="PurchaseOrderNO" disabled="@(ViewData["Action"].ToString() == ViewEnum.Action.Edit.ToDescription() || (bool)ViewBag.UseVoucherFormat)">
+                                            <span asp-validation-for="PurchaseOrderNO" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 form-group">
+                                        <label class="form-label" for="Supplier">Supplier</label>
+                                        <span class="desc"></span>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" asp-for="Supplier">
+                                            <span asp-validation-for="Supplier" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    @*<div class="col-md-4 form-group">
+                                    <label class="form-label" for="PurchaseOrderId">PurchaseOrderNo</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                    <select class="form-control" asp-for="PurchaseOrderId" asp-items="ViewBag.PurchaseOrder">
+                                    <option value="">Please Select PurchaseOrderNo</option>
+                                    </select>
+                                    <span asp-validation-for="PurchaseOrderId"class="text-danger"></span>
+                                    </div>
+                                    </div>*@
+
+                                </div>
+                                <div>
+                                    <div class="row" id="root"></div>
+
+                                    <div class="col-md-12 form-group">
+                                        <label class="form-label" for="Remark">Remark</label>
+                                        <span class="desc"></span>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" asp-for="Remark">
+                                            <span asp-validation-for="Remark" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12  padding-bottom-30">
+                                <div class="text-left">
+                                    <button type="submit" class="btn btn-primary gradient-blue">Save</button>
+                                    <button type="button" data-href="/PurchaseOrders/index" class="btn btn-click">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

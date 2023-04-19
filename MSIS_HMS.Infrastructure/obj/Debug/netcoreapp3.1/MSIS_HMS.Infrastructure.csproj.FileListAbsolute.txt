@@ -1,0 +1,16 @@
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\bin\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.deps.json
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\bin\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.runtimeconfig.json
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\bin\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.runtimeconfig.dev.json
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\bin\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.dll
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\bin\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.pdb
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\bin\Debug\netcoreapp3.1\MSIS_HMS.Core.dll
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\bin\Debug\netcoreapp3.1\MSIS_HMS.Core.pdb
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\obj\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\obj\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\obj\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\obj\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.AssemblyInfo.cs
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\obj\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\obj\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.csproj.CopyComplete
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\obj\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.dll
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\obj\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.pdb
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Infrastructure\obj\Debug\netcoreapp3.1\MSIS_HMS.Infrastructure.genruntimeconfig.cache

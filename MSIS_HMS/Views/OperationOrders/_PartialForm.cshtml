@@ -1,0 +1,177 @@
+﻿@using MSIS_HMS.Enums;
+@using static MSIS_HMS.Infrastructure.Helpers.DateTimeExtensions;
+@model MSIS_HMS.Core.Entities.OperationOrder
+
+<div class="col-xs-12">
+
+    <div class=" bg-w">
+        <div class="col-lg-12 col-xs-12">
+            <section class="box">
+                <header class="panel_header">
+                    <h2 class="title pull-left">Basic Info</h2>
+                    <div class="actions panel_actions pull-right">
+                    </div>
+                </header>
+                <div class="content-body">
+                     <div class="row">
+                            <form action="/OperationOrders/@ViewData["Action"]" method="post">
+                                @Html.AntiForgeryToken()
+                                @if (ViewData["Action"].ToString() == ViewEnum.Action.Edit.ToDescription())
+                                {
+                                    <input asp-for="Id" hidden />
+                                    <input asp-for="BranchId" hidden />
+                                }
+                                @if (Model != null)
+                                {
+                                    <input asp-for="OrderNo" hidden />
+                                    @if (Model.PatientId != 0)
+                                    {
+                                        <input asp-for="PatientId" hidden />
+                                    }
+                                }
+
+                                <div class="col-xs-12">
+                                    <div class="row">
+
+                                         <div class="col-md-6 form-group">
+                                            <label class="form-label" for="OrderNo">Order No</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" asp-for="OrderNo" value="@Model.OrderNo" disabled="@(Model!=null)" />
+                                                <span asp-validation-for="OrderNo" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 form-group">
+                                            <label class="form-label" for="PatientId">Patient</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <select class="form-control" asp-for="PatientId" asp-items="ViewBag.Patients">
+                                                    <option value="">Please Select Patient</option>
+                                                </select>
+                                                <span asp-validation-for="PatientId" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label class="form-label" for="ChiefSurgeonDoctorId">Chief Surgeon</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <select class="form-control" asp-for="ChiefSurgeonDoctorId" asp-items="ViewBag.Doctors">
+                                                    <option value="">Please Select Doctor</option>
+                                                </select>
+                                                <span asp-validation-for="ChiefSurgeonDoctorId" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-md-6 form-group">
+                                            <label class="form-label" for="OpeartionTypeId">Operation Name</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <select class="form-control" asp-for="OpeartionTypeId" asp-items="ViewBag.OperationTypes">
+                                                    <option value="">Please Select Operation Type</option>
+                                                </select>
+                                                <span asp-validation-for="OpeartionTypeId" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label class="form-label" for="OTDate">Operation Date</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                @if (ViewData["Action"].ToString() == ViewEnum.Action.Edit.ToDescription())
+                                                {
+                                                    <input type="datetime-local" class="form-control" asp-for="OTDate">
+                                                }
+                                                else
+                                                {
+                                                    <input type="datetime-local" class="form-control" asp-for="OTDate" value="@GetCurrentDateTimeString()">
+                                                }
+                                                <span asp-validation-for="OTDate" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 form-group">
+                                            <label class="form-label" for="AdmitDate">Admit Date</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                @if (ViewData["Action"].ToString() == ViewEnum.Action.Edit.ToDescription())
+                                                {
+                                                    <input type="datetime-local" class="form-control" asp-for="AdmitDate">
+                                                }
+                                                else
+                                                {
+                                                    <input type="datetime-local" class="form-control" asp-for="AdmitDate" value="@GetCurrentDateTimeString()">
+                                                }
+                                                <span asp-validation-for="AdmitDate" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     
+                                    <div class="row">
+                                         <div class="col-md-6 form-group">
+                                            <label class="form-label" for="OperationRoomId">Operation Room</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <select class="form-control" asp-for="OperationRoomId" asp-items="ViewBag.OperationRooms">
+                                                    <option value="">Please Select Operation Room</option>
+                                                </select>
+                                                <span asp-validation-for="OperationRoomId" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 form-group">
+                                            <label class="form-label" for="Status">Status</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <select class="form-control" asp-for="Status" asp-items="@Html.GetEnumSelectList<MSIS_HMS.Core.Enums.OTOrderStatusEnum>()">
+                                                    <option value="">Please Select Status</option>
+                                                </select>
+                                                <span asp-validation-for="Status" class="text-danger"></span>
+                                            </div>
+                                        </div>   
+                                    </div>
+
+                                         @if (ViewData["Action"].ToString() == ViewEnum.Action.Edit.ToDescription())
+                                        {
+                                        <div class="row reasonForCancellation" style="display: none;">
+                                            <div class="col-md-12 form-group">
+                                                <label class="form-label" for="ReasonForCancellation">Reason For Cancellation</label>
+                                                <span class="desc"></span>
+                                                <div class="controls">
+                                                    <textarea class="form-control" asp-for="ReasonForCancellation"></textarea>
+                                                    <span asp-validation-for="ReasonForCancellation" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        }
+
+
+
+                                    </div>
+
+                               
+                                <div class="col-xs-12  padding-bottom-30">
+                                    <div class="text-left">
+                                        <button type="submit" class="btn btn-primary gradient-blue">Save</button>
+                                        <button type="button" data-href="/OperationOrders/index" class="btn btn-click">Cancel</button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                     </div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+
+</div>

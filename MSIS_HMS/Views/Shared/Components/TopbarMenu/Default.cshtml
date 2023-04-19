@@ -1,0 +1,154 @@
+﻿
+<div class='page-topbar gradient-blue1'>
+    <div class='logo-area crypto'>
+        <img src="~/data/icons/msislog.png" alt="login-icon" style="max-width:64px">
+    </div>
+    <div class='quick-area'>
+        <div class='pull-left'>
+            <ul class="info-menu left-links list-inline list-unstyled">
+                <li class="sidebar-toggle-wrap">
+                    <a href="#" data-toggle="sidebar" class="sidebar_toggle">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+      
+        <div class='pull-right'>
+
+            <ul class="info-menu right-links list-inline list-unstyled">
+                <li class="notify-toggle-wrapper spec">
+                    <a href="#" data-toggle="dropdown" class="toggle">
+                        <i class="fa fa-bell"></i>
+                        @if (ViewBag.Role == "Lab")
+                        {
+                            <span class="badge badge-accent">@ViewBag.labOrderCount</span>
+                        }
+                        @*else if (ViewBag.Role =="Admin")
+                        {
+                            <span class="badge badge-accent">@ViewBag.labResultCount</span>
+                        }*@
+                        else
+                        {
+                            <span class="badge badge-accent">@ViewBag.ipdPayemntCount</span>
+                        }
+
+                    </a>
+                    <ul class="dropdown-menu notifications animated fadeIn">
+                        <li class="total">
+                            <span class="small">
+                                @if (ViewBag.Role == "Lab")
+                                {
+                                    @*You have <strong>@ViewBag.ipdPayemntCount</strong> new notifications.*@
+                                    <strong>LabOrders list</strong>
+                                }
+                               @* else if(ViewBag.Role == "Admin")
+                                {
+                                    <strong>Remaining Approve List</strong>
+                                }*@
+                                else
+                                {
+                                    <strong>Alert patient list under 20% of payment</strong>
+
+                                }
+                                @*<a href="javascript:;" class="pull-right">Alert Amount under 20%</a>*@
+                            </span>
+                        </li>
+                        <li class="list">
+
+                            <ul class="dropdown-menu-list list-unstyled ps-scrollbar">
+                                @if (ViewBag.Role == "Lab")
+                                {
+                                    @foreach (var labOrder in ViewBag.labOrders)
+                                    {
+                                        <li class="unread available">
+                                            <div>
+                                                <span class="name">
+                                                    <strong>@labOrder.VoucherNo</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span>@labOrder.PatientName</span>
+                                                </span>
+                                            </div>
+
+                                        </li>
+                                    }
+                                }
+                                @*else if (ViewBag.Role=="Admin")
+                                {
+                                    @foreach (var labResult in ViewBag.labResults)
+                                    {
+                                        <li class="unread available">
+                                            <div>
+                                                <span class="name">
+                                                    <strong>
+                                                        @labResult.LabTest
+                                                    </strong>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    }
+                                }*@
+                               
+                                else
+                                {
+                                    @foreach (var payment in ViewBag.ipdPayments)
+                                    {
+                                        <li class="unread available">
+                                            <div>
+                                                <span class="name">
+                                                    <strong>@payment.PatientName</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span>@payment.Amount</span>
+                                                </span>
+                                            </div>
+
+                                        </li>
+                                    }
+                                }
+
+
+
+
+                            </ul>
+
+                        </li>
+
+                        @*<li class="external">
+                            <a href="javascript:;">
+                                <span>Read All Notifications</span>
+                            </a>
+                        </li>*@
+                    </ul>
+                </li>
+                <li class="profile">
+                    <a href="#" data-toggle="dropdown" class="toggle">
+                        @*<img src="~/data/profile/profile.jpg" alt="user-image" class="img-circle img-inline">*@
+                        <span value=""> @ViewBag.UserName <i class="fa fa-angle-down"></i></span>
+                    </a>
+                    <ul class="dropdown-menu profile animated fadeIn">
+                        <li>
+                            <a href="crypto-account-setting.html">
+                                <i class="fa fa-wrench"></i> Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="crypto-profile.html">
+                                <i class="fa fa-user"></i> Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="crypto-faq.html">
+                                <i class="fa fa-info"></i> Help
+                            </a>
+                        </li>
+                        <form action="/Account/Logout" method="post" id="logoutform">
+                        <li>
+                            <a href="javascript:{}" onclick="document.getElementById('logoutform').submit();" style="padding:3px 20px;">
+                                <i class="fa fa-lock"></i> Logout
+                            </a>
+                        </li>
+                        </form>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

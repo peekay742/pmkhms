@@ -1,0 +1,121 @@
+﻿@{
+
+    ViewData["Title"] = "Excel Upload and Import";
+}
+<head>
+    <style>
+        div.scroll {
+            margin: 4px, 4px;
+            padding: 4px;
+            background-color: #ffffff;
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<div class="col-xs-12 ">
+    <div class=" bg-w">
+        <div class="col-lg-12">
+        <section class="box">
+            <header class="panel_header">
+                <h2 class="title pull-left">Basic Info</h2>
+                <div class="actions panel_actions pull-right">
+                </div>
+            </header>
+            <div class="content-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                        <form enctype="multipart/form-data" method="post" asp-controller="Staffs" asp-action="ImportExcelFile">
+                            
+
+
+                                <div id="idown">
+                                    <a href="@Url.Action("Export", "Staffs")" id="btDown" class="btn btn-primary">Download</a>
+                                </div>
+                                <br /><br /><br />
+
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input type="file" name="FormFile" id="FormFile">
+                                    </div>
+                                    <div class="col-md-3" id="ipre">
+                                        <input type="button" name="Preview" value="Preview" id="btnupload" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                                <div class="clearfix">&nbsp;</div>
+                                <div class="row scroll">
+                                    <div id="divPrint"></div>
+                                </div><br /><br /><br />
+                                <div class="col-md-3" id="iimport">
+                                    <input class="btn btn-primary" type="submit" value="Import" />
+                                </div>
+                          
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+
+        document.getElementById("iimport").style.display="none";
+
+
+
+        $('#btnupload').on('click', function () {
+            document.getElementById("iimport").style.display="block";
+            var fileExtension = ['xls', 'xlsx'];
+            var filename = $('#FormFile').val();
+            if (filename.length == 0) {
+                alert("Please select a file.");
+                return false;
+            }
+            else {
+                var extension = filename.replace(/^.*\./, '');
+                if ($.inArray(extension, fileExtension) == -1) {
+                    alert("Please select only excel files.");
+                    return false;
+                }
+            }
+            var fdata = new FormData();
+            var fileUpload = $("#FormFile").get(0);
+            var files = fileUpload.files;
+            fdata.append(files[0].name, files[0]);
+            $.ajax({
+                type: "POST",
+                url: "/Symptoms/Upload",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                },
+                data: fdata,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response.length == 0)
+                        alert('Some error occured while uploading');
+                    else {
+                        $('#divPrint').html(response);
+                    }
+                },
+                error: function (e) {
+                    $('#divPrint').html(e.responseText);
+                }
+            });
+        })
+
+    });
+</script>

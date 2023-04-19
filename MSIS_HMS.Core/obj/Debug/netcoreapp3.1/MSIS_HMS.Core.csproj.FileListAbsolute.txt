@@ -1,0 +1,10 @@
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Core\bin\Debug\netcoreapp3.1\MSIS_HMS.Core.deps.json
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Core\bin\Debug\netcoreapp3.1\MSIS_HMS.Core.dll
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Core\bin\Debug\netcoreapp3.1\MSIS_HMS.Core.pdb
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Core\obj\Debug\netcoreapp3.1\MSIS_HMS.Core.csproj.AssemblyReference.cache
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Core\obj\Debug\netcoreapp3.1\MSIS_HMS.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Core\obj\Debug\netcoreapp3.1\MSIS_HMS.Core.AssemblyInfoInputs.cache
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Core\obj\Debug\netcoreapp3.1\MSIS_HMS.Core.AssemblyInfo.cs
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Core\obj\Debug\netcoreapp3.1\MSIS_HMS.Core.csproj.CoreCompileInputs.cache
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Core\obj\Debug\netcoreapp3.1\MSIS_HMS.Core.dll
+C:\Users\Wai\Desktop\thirisandar\hms\MSIS_HMS.Core\obj\Debug\netcoreapp3.1\MSIS_HMS.Core.pdb
